@@ -23,9 +23,8 @@ class AccountInvoice(models.Model):
 class AccountInvoiceLine(models.Model):
     _inherit = "account.invoice.line"
 
-    move_line_ids = fields.One2many(
+    move_line_ids = fields.Many2many(
         comodel_name='stock.move',
-        inverse_name='invoice_line_id',
         string='Related Stock Moves',
         readonly=True,
         copy=False,
